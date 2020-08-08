@@ -1,6 +1,7 @@
 import ProductTool from '../tools/product';
 import getPage, {
     paginate,
+    pagination,
     paginatePage
 } from '../utils/pagination';
 import models from '../models';
@@ -10,31 +11,36 @@ import {
     productResult
 } from '../utils/product';
 import isEmpty from 'lodash.isempty';
+import {
+    query
+} from '../graphql/queries/Query';
 const {
     product,
-    productcategory
+    product_category
 } = models;
 
 export default class ProductController {
     static async getProducts(req, res) {
         const {
-            noOfPage,
+            numberOfPage,
             pageLimit,
             description_length
         } = getPage(req.query);
         const allProducts = await ProductTool.getAllProducts(
             paginate({
-                noOfPage,
+                numberOfPage,
                 pageLimit
             })
         );
         const counts = await product.count();
         const availableProducts = allproductsAvailable(allProducts, description_length);
-        const result = {
-            size: counts,
-            rows: availableProducts
-        };
-        return await ResponseTool.successResponse(res, result, 200, 'products retrieved');
+        const [products, productsCount] = await Promise.all([availableProducts, counts])
+
+        const queryPagePagination = paginatePage(req, productsCount)
+        return await ResponseTool.successResponse(res, {
+            products,
+            ...queryPagePagination
+        }, 200, 'products retrieved');
     }
 
     static async getOneProduct(req, res) {
@@ -62,7 +68,7 @@ export default class ProductController {
         } = req;
         const {
             pageLimit,
-            noOfPage,
+            numberOfPage,
             description_length
         } = getPage(req.query);
         const parsedId = parseInt(category_id, 10);
@@ -71,17 +77,18 @@ export default class ProductController {
                 category_id,
                 paginate({
                     pageLimit,
-                    noOfPage
+                    numberOfPage
                 })
             );
-            const counts = await productcategory.count();
+            const counts = await product_category.count();
             if (!isEmpty(productsInCategory)) {
-                const allproducts = allproductsAvailable(productsInCategory, description_length, false);
-                const result = {
-                    size: counts,
-                    rows: allproducts
-                };
-                return await ResponseTool.successResponse(res, result, 200, 'products in Category has been retrieved');
+                const allProducts = allproductsAvailable(productsInCategory, description_length, false);
+                const [products, productsCount] = await Promise.all([allProducts, counts])
+                const queryPagePagination = paginatePage(req, productsCount)
+                return await ResponseTool.successResponse(res, {
+                    products,
+                    ...queryPagePagination
+                }, 200, 'products in Category has been retrieved');
             }
             return await ResponseTool.httpErrorResponse(res, null, 404, `the product in category with this ID ${category_id} Does not Exist`);
         }
@@ -94,27 +101,26 @@ export default class ProductController {
                 department_id
             }
         } = req;
-        const params = getPage(req.query);
         const {
             pageLimit,
-            noOfPage,
+            numberOfPage,
             description_length
-        } = params;
+        } = getPage(req.query);
         const parsedId = parseInt(department_id, 10);
         if (!isNaN(parsedId)) {
-            const products = await ProductTool.getProductsInDepartment(department_id);
-            if (!isEmpty(products)) {
-                const counts = products.length;
-                const pages = paginate({
-                    pageLimit,
-                    noOfPage
-                });
-                const allProducts = allproductsAvailable(products, description_length);
-                const result = paginatePage(allProducts, pages);
+            const allProducts = await ProductTool.getProductsInDepartment(department_id, paginate({
+                pageLimit,
+                numberOfPage
+            }));
+            if (!isEmpty(allProducts)) {
+                const counts = allProducts.length;
+                const departmentProducts = allproductsAvailable(allProducts, description_length);
+                const [products, productsCount] = await Promise.all([departmentProducts, counts])
+                const queryPagePagination = paginatePage(req, productsCount);
                 return await ResponseTool.successResponse(
                     res, {
-                        counts,
-                        rows: productResult(result)
+                        products: productResult(products),
+                        ...queryPagePagination
                     },
                     200,
                     'the products in the department has been retrieved '
@@ -129,9 +135,9 @@ export default class ProductController {
         const {
             query_string
         } = req.query;
-        if (query_string) {
+        if (query_string !== '' || !isEmpty(query_string)) {
             const {
-                noOfPage,
+                numberOfPage,
                 pageLimit,
                 description_length
             } = getPage(req.query);
@@ -140,21 +146,26 @@ export default class ProductController {
             const searchedproduct = products.filter((product) =>
                 product.description.match(string) || product.name.match(string)
             );
-            const allProducts = allproductsAvailable(searchedproduct, description_length);
-            const counts = allProducts.length;
-            const page = paginate({
-                noOfPage,
-                pageLimit
-            });
-            const results = paginatePage(allProducts, page);
-            return await ResponseTool.successResponse(
-                res, {
-                    counts,
-                    rows: results
-                },
-                200,
-                `searching successful`
-            );
+            if (!isEmpty(searchedproduct)) {
+                const allProducts = allproductsAvailable(searchedproduct, description_length);
+                const counts = allProducts.length;
+                const page = paginate({
+                    numberOfPage,
+                    pageLimit
+                });
+                const [allSearchProduct, searchedCounts] = await Promise.all([allProducts, counts])
+                const queryPagePagination = paginatePage(req, searchedCounts)
+                // const searchedProduct = pagination(allSearchProduct, page);
+                return await ResponseTool.successResponse(
+                    res, {
+                        allSearchProduct,
+                        ...queryPagePagination
+                    },
+                    200,
+                    `searching successful`
+                );
+            }
+            return await ResponseTool.httpErrorResponse(res, null, 404, `No details with  ${query_string}  can be found`);
         }
         return await ResponseTool.httpErrorResponse(res, null, 400, 'query_string can not be blank');
     }

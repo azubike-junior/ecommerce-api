@@ -1,7 +1,3 @@
-import {
-  SAVE_PRODUCT,
-  MOVE_TO_CART
-} from '../utils/variable'
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const shoppingCart = sequelize.define('shoppingCart', {
@@ -27,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     added_On: {
       type: DataTypes.DATE
     },
-    get_now: {
-      type: DataTypes.INTEGER
+    buy_now: {
+      type: DataTypes.STRING
     }
   }, {
     freezeTableName: true,
@@ -42,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   shoppingCart.prototype.saveOrMoveTocart = async function (option) {
-    this.get_now = option
+    this.buy_now = option
     await this.save()
     await this.reload()
   }

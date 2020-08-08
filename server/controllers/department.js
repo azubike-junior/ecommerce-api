@@ -12,10 +12,15 @@ export default class DepartmentController {
         const {
             department_id
         } = req.params
-        const foundDepartment = await departmentTool.getADepartment(department_id);
-        if (!isEmpty(foundDepartment)) {
-            return await responseTool.successResponse(res, foundDepartment, 200, 'Department retrieved')
+        const parsedId = parseInt(department_id, 10)
+        if (!isNaN(parsedId)) {
+            const foundDepartment = await departmentTool.getADepartment(department_id);
+            if (!isEmpty(foundDepartment)) {
+                return await responseTool.successResponse(res, foundDepartment, 200, 'Department retrieved')
+            }
+            return await responseTool.httpErrorResponse(res, null, 404, 'No department found')
         }
-        return await responseTool.httpErrorResponse(res, null, 404, 'No department found')
+        return responseTool.httpErrorResponse(res, null, 400, `this Id ${department_id} ID is not a number`);
+
     }
 }

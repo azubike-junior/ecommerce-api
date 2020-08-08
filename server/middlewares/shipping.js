@@ -18,9 +18,13 @@ export const findShipping = async (req, res, next) => {
     const {
         shipping_id
     } = req.body;
-    const shipping = await ShippingTool.getOneShipping(shipping_id);
-    if (!isEmpty(shipping)) {
-        return next()
+    try {
+        const shipping = await ShippingTool.getOneShipping(shipping_id);
+        if (!isEmpty(shipping)) {
+            return next()
+        }
+        return ResponseTool.httpErrorResponse(res, null, 400, 'the field shipping is Empty')
+    } catch (e) {
+        console.log(e)
     }
-    return ResponseTool.httpErrorResponse(res, null, 400, 'the field shipping is Empty')
 }

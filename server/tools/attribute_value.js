@@ -28,15 +28,4 @@ export default class AttributeValueTool {
             }
         })
     }
-
-    // static async getAllAttributeValues(id) {
-    // return await attribute.findAll({
-    // where: {
-    // attribute_id: id
-    // },
-
-    // include: [{
-    // model: attribute_value
-    // }]
-    // })
 }

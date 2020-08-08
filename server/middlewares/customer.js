@@ -17,14 +17,19 @@ export const findCustomer = async (req, res, next) => {
     const {
         customer_id
     } = req.user
-    const foundCustomer = await customerTool.getCustomerById(customer_id);
-    if (foundCustomer) {
-        req.customer = foundCustomer;
-        return next()
+    try {
+        const foundCustomer = await customerTool.getCustomerById(customer_id);
+        if (foundCustomer) {
+            req.customer = foundCustomer;
+            return next()
+        }
+        return res.status(400).json({
+            success: false,
+            message: 'Customer not found',
+            field: 'customer'
+        })
+    } catch (e) {
+        console.log(e)
     }
-    return res.status(400).json({
-        success: false,
-        message: 'Customer not found',
-        field: 'customer'
-    })
+
 }

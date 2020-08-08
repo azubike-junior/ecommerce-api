@@ -34,7 +34,7 @@ export default class ShoppingController {
                 product_id,
                 quantity: 1,
                 added_On: new Date(),
-                get_now: MOVE_TO_CART
+                buy_now: MOVE_TO_CART
             })
         } else {
             await cart.increment('quantity')
@@ -82,7 +82,7 @@ export default class ShoppingController {
         const {
             item
         } = req;
-        await ShoppingCartTool.saveToCart(item, MOVE_TO_CART)
+        await item.saveOrMoveTocart(MOVE_TO_CART)
         return ResponseTool.successResponse(res, item.dataValues, 200, 'item as been moved to cart')
     }
 
@@ -90,8 +90,7 @@ export default class ShoppingController {
         const {
             item
         } = req;
-        console.log(item.dataValues)
-        await ShoppingCartTool.saveToCart(item, SAVE_PRODUCT)
+        await item.saveOrMoveTocart(SAVE_PRODUCT)
         return await ResponseTool.successResponse(res, item.dataValues, 200, 'item as been saved for later')
     }
 
@@ -113,12 +112,11 @@ export default class ShoppingController {
             },
             item
         } = req
-        await ShoppingCartTool.updateItem(item, {
+
+        const cart = await ShoppingCartTool.updateItem(item, {
             quantity
         })
-        const cart_id = item.get('cart_id')
-        const foundItem = await ShoppingCartTool.getProducts(cart_id);
-        return await ResponseTool.successResponse(res, cartFormat(foundItem), 201, 'cart updated successfully')
+        return await ResponseTool.successResponse(res, cart, 201, 'cart updated successfully')
     }
 
     static async removeProductInCart(req, res) {
@@ -126,7 +124,7 @@ export default class ShoppingController {
             item
         } = req;
         await ShoppingCartTool.removeItemFromCart(item.item_id)
-        return await ResponseTool.successResponse(res, [], 200, 'item deleted')
+        return await ResponseTool.successResponse(res, [], 200, 'item removed from cart')
     }
 
     static async emptyCart(req, res) {

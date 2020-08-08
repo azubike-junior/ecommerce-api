@@ -8,11 +8,15 @@ export default class TaxController {
         const {
             tax_id
         } = req.params
-        const foundTax = await taxTool.getOneTax(tax_id);
-        if (!isEmpty(foundTax)) {
-            return await responseTool.successResponse(res, foundTax, 200, 'Tax retrieved')
+        const parsedId = parseInt(tax_id, 10)
+        if (!isNaN(parsedId)) {
+            const foundTax = await taxTool.getOneTax(tax_id);
+            if (!isEmpty(foundTax)) {
+                return await responseTool.successResponse(res, foundTax, 200, 'Tax retrieved')
+            }
+            return await responseTool.httpErrorResponse(res, 404, null, 'No Tax found')
         }
-        return await responseTool.httpErrorResponse(res, 404, null, 'No Tax found')
+        return await responseTool.httpErrorResponse(res, 400, null, `this ${tax_id} ID is not a number`)
     }
 
     static async getAllTaxes(req, res) {

@@ -69,7 +69,7 @@ module.exports = (sequelize, DataTypes) => {
       target: 'tax_id'
     });
 
-    order.hasMany(db.orderDetail, {
+    order.hasMany(db.order_detail, {
       foreignKey: 'order_id',
       target: 'order_id'
     });
@@ -79,6 +79,28 @@ module.exports = (sequelize, DataTypes) => {
     this.status = PAID;
     await this.save();
     await this.reload();
+  }
+
+  order.prototype.setShippedDate = async function () {
+    this.shipped_on = Date.now()
+    await this.save()
+  }
+
+  order.prototype.setAuthCode = async function (authcode, reference) {
+    this.auth_code = authcode;
+    this.Reference = reference;
+    await this.save();
+  }
+
+  order.prototype.updateOrder = async function (comments, name) {
+    if (this.status === false) {
+      this.shipped_on = null
+      return
+    }
+    this.shipped_on = Date.now();
+    this.comments = comments
+    this.name = name
+    await this.save()
   }
   return order;
 };

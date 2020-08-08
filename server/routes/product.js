@@ -7,10 +7,10 @@ import {
 import {
     reviewSchema
 } from '../validation/schema'
-import TokenTool from '../middlewares/authentication'
 import {
     findProductParam
 } from '../middlewares/product';
+import verifyToken from '../middlewares/authentication'
 
 
 productRoute.get('/', ProductController.getProducts);
@@ -21,6 +21,6 @@ productRoute.get('/:product_id', ProductController.getOneProduct);
 productRoute.get('/inCategory/:category_id', ProductController.getProductsInCategory);
 productRoute.route('/:product_id/Reviews')
     .get(ProductController.getReviews)
-    .post(TokenTool.verifyToken, validationBody(reviewSchema), findProductParam, ProductController.postAReview)
+    .post(validationBody(reviewSchema), verifyToken, findProductParam, ProductController.postAReview)
 
 export default productRoute;

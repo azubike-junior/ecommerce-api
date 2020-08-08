@@ -18,6 +18,7 @@ export default ({
 
 
 export const cartFormat = (products) => {
+    console.log(products)
     let allProduct = [];
     products.forEach(product => {
         allProduct.push({
@@ -26,6 +27,7 @@ export const cartFormat = (products) => {
             product_id: product.product_id,
             quantity: product.quantity,
             product_name: product.product.name,
+            discounted_price: product.product.discounted_price,
             product_price: product.product.price,
             product_image: product.product.image,
             subtotal: product.product.price * product.quantity
@@ -54,7 +56,7 @@ export const formatAtt = async (attributes) => {
         allAttributes.push({
             attribute_name: attribute.attribute_value.attribute.name,
             attribute_value_id: attribute.attribute_value.attribute_value_id,
-            attibute_value: attribute.attribute_value.value
+            attribute_value: attribute.attribute_value.value
         })
     })
     return allAttributes;

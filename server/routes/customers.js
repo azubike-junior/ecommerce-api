@@ -1,16 +1,15 @@
 import express from 'express';
 import CustomerController from '../controllers/customer';
-import TokenTool from '../middlewares/authentication';
 import passport from 'passport';
 import {
-    signUpSchema,
-    signInSchema
-} from '../validation/schema';
+    validateSchema
+} from '../middlewares/valiadateData';
 const customersRoute = express.Router();
+import verifyToken from '../middlewares/authentication'
 
-customersRoute.post('/', signUpSchema, CustomerController.registerCustomer);
-customersRoute.post('/login', signInSchema, CustomerController.loginCustomer);
-customersRoute.get('/', TokenTool.verifyToken, CustomerController.getCustomer);
+customersRoute.post('/signup', validateSchema, CustomerController.registerCustomer);
+customersRoute.post('/login', CustomerController.loginCustomer);
+customersRoute.get('/', verifyToken, CustomerController.getCustomer);
 customersRoute.get(
     '/facebook',
     passport.authenticate('facebook', {

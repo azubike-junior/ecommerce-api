@@ -1,7 +1,7 @@
 import models from '../models';
 const {
     category,
-    productcategory
+    product_category
 } = models
 
 export default class CategoryTool {
@@ -14,7 +14,7 @@ export default class CategoryTool {
     }
 
     static async getAProductCategory(id) {
-        return await productcategory.findOne({
+        return await product_category.findOne({
             where: {
                 product_id: id
             },

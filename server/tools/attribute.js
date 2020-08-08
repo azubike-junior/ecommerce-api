@@ -5,6 +5,7 @@ const {
 
 export default class AttributeTool {
     static async getAllAttributes() {
+        console.log('===it didnt get here')
         return await attribute.findAll()
     }
 

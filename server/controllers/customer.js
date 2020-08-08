@@ -4,7 +4,9 @@ import {
     comparePassword,
     removePassword
 } from '../utils/password';
-import TokenTool from '../middlewares/authentication';
+import {
+    generateToken
+} from '../middlewares/authentication'
 import ResponseTool from '../utils/response';
 
 export default class CustomerController {
@@ -22,7 +24,7 @@ export default class CustomerController {
             password: req.body.password,
             email
         });
-        const token = await TokenTool.generateToken(newCustomer.customer_id);
+        const token = generateToken(newCustomer.customer_id);
         return await ResponseTool.successResponse(res, token, 201, 'registered Successfully');
     }
 
@@ -36,7 +38,7 @@ export default class CustomerController {
             const userPassword = customer.get('password')
             const isMatch = comparePassword(password, userPassword)
             if (isMatch) {
-                const token = await TokenTool.generateToken(customer.customer_id);
+                const token = generateToken(customer.customer_id);
                 return ResponseTool.successResponse(res, token, 200, 'login Successfully');
             }
             return await ResponseTool.httpErrorResponse(res, null, 400, 'invalid login credential');
@@ -48,6 +50,7 @@ export default class CustomerController {
         const {
             customer_id
         } = req.user
+        console.log(customer_id)
         const foundCustomer = await CustomerTool.getCustomerById(customer_id)
         const customer = await CustomerTool.getCustomerDetails(foundCustomer)
         return ResponseTool.successResponse(res, customer, 200, 'Customer details retrieved');
@@ -71,6 +74,9 @@ export default class CustomerController {
             day_phone,
             mobile_phone
         })
+        console.log('===before', updatedCustomerData.password)
+        updatedCustomerData.password = undefined;
+        console.log('===after', updatedCustomerData.password)
         return await ResponseTool.successResponse(res, updatedCustomerData, 201, 'Customer Biodata updated')
     }
 
@@ -85,7 +91,8 @@ export default class CustomerController {
             credit_card
         })
         const customerDetail = await CustomerTool.getCustomerDetails(creditCard)
-        return await ResponseTool.successResponse(res, customerDetail, 201, 'Customer credit Card updated')
+        console.log(customerDetail.customer)
+        return await ResponseTool.successResponse(res, customerDetail.customer, 201, 'Customer credit Card updated')
     }
 
     static async updateCustomerAddress(req, res) {
@@ -110,6 +117,7 @@ export default class CustomerController {
             postal_code,
             shipping_region_id
         });
+        console.log(updatedCustomerAddress)
         return await ResponseTool.successResponse(res, updatedCustomerAddress, 201, 'Customer Address updated')
     }
 

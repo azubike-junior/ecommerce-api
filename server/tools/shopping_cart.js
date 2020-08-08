@@ -35,7 +35,7 @@ export default class ShoppingCartTool {
         return await shoppingCart.findAll({
             where: {
                 cart_id: id,
-                get_now: MOVE_TO_CART
+                buy_now: MOVE_TO_CART
             },
             include: option ? [{
                 model: product
@@ -60,7 +60,7 @@ export default class ShoppingCartTool {
     }
 
     static async saveToCart(item, option) {
-        item.dataValues.get_now = option;
+        item.dataValues.buy_now = option;
         await item.save();
         return item;
     }
@@ -76,7 +76,7 @@ export default class ShoppingCartTool {
         return await shoppingCart.findAll({
             where: {
                 cart_id: id,
-                get_now: SAVE_PRODUCT
+                buy_now: SAVE_PRODUCT
             },
             include: [{
                 model: product

@@ -10,7 +10,6 @@ export const allproductsAvailable = (products, description_length, opt = true) =
                 description: productDescription
             });
         })
-        console.log(allProducts)
         return allProducts;
     }
     if (opt === false) {

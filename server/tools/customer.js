@@ -60,8 +60,8 @@ export default class CustomerTool {
         customer.region = update.region || customer.region
         customer.postal_code = update.postal_code || customer.postal_code
         customer.shipping_region_id = update.shipping_region_id || customer.shipping_region_id
+        customer.country = update.country || customer.country
         await customer.save();
-        await customer.reload();
         return customer
     }
 }

@@ -1,0 +1,15 @@
+post http://localhost:4040/stripe/charge
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6MSwiaWF0IjoxNTk2MjQwMjE0fQ.oy5I_qxyY_H_tkgsly3b5iUmwob8gBkrRz0R18FH2Jk
+
+  {
+   "stripeToken":"tok_us",
+   "amount": 50.00,
+   "description":"my new clothes",
+   "currency":"USD",
+   "order_id": 1
+  }
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lcl9pZCI6MSwiaWF0IjoxNTk2MjQwMjE0fQ.oy5I_qxyY_H_tkgsly3b5iUmwob8gBkrRz0R18FH2Jk
+
+

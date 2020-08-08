@@ -9,15 +9,19 @@ export default async (req, res, next) => {
     const {
         cart_id
     } = req.body
-    const foundCart = await shoppingCart.findOne({
-        where: {
-            cart_id
+    try {
+        const foundCart = await shoppingCart.findOne({
+            where: {
+                cart_id
+            }
+        })
+        if (!isEmpty(foundCart)) {
+            return next()
         }
-    })
-    if (!isEmpty(foundCart)) {
-        return next()
+        return await ResponseTool.httpErrorResponse(res, 400, null, 'cart_id field is empty')
+    } catch (e) {
+        console.log(e)
     }
-    return await ResponseTool.httpErrorResponse(res, 400, null, 'cart_id field is empty')
 }
 
 export const findItem = async (req, res, next) => {

@@ -2,9 +2,11 @@ import CategoryTool from "../tools/category";
 import isEmpty from "lodash.isempty";
 import models from '../models'
 import ResponseTool from '../utils/response';
-import {
-    paginate
+import getPage, {
+    paginate,
+    paginatePage
 } from '../utils/pagination'
+
 const {
     category
 } = models;
@@ -12,21 +14,21 @@ const {
 export default class CategoryController {
     static async getAllCategory(req, res) {
         const {
-            page,
-            limit
-        } = req.query
-        const noOfPage = page || 1;
-        const pageLimit = limit || 20;
-        const categories = await CategoryTool.getAllCategories(paginate({
-            noOfPage,
+            numberOfPage,
+            pageLimit,
+            description_length
+        } = getPage(req.query);
+        const allCategories = await CategoryTool.getAllCategories(paginate({
+            numberOfPage,
             pageLimit
         }));
         const allCounts = await category.count()
-        const result = {
-            counts: allCounts,
-            rows: categories
-        }
-        return await ResponseTool.successResponse(res, result, 200, 'All Categories retrieved')
+        const [categories, categoriesCount] = await Promise.all([allCategories, allCounts])
+        const queryPagePagination = paginatePage(req, categoriesCount)
+        return await ResponseTool.successResponse(res, {
+            categories,
+            ...queryPagePagination
+        }, 200, 'All Categories retr ieved')
     }
 
     static async getOneCategory(req, res) {

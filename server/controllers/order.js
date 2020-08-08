@@ -45,7 +45,7 @@ export default class OrderController {
                 tax_id,
                 total_amount: totalAmount.toFixed(2)
             })
-            // await ShoppingCartTool.emptyCart(cart_id)
+            await ShoppingCartTool.emptyCart(cart_id)
             const order_id = await newOrder.get('order_id');
             const allItems = prepareProducts(cart, order_id);
             await OrderTool.createOrderDetails(allItems);
@@ -84,5 +84,55 @@ export default class OrderController {
             return await responseTool.successResponse(res, details, 200, 'Order Detail Retrieved')
         }
         return await responseTool.httpErrorResponse(res, null, 404, 'Order Detail Not Found')
+    }
+
+    static async setOrderAuthCode(req, res) {
+        const {
+            params: {
+                order_id
+            },
+            body: {
+                auth_code,
+                Reference
+            }
+        } = req
+        const order = await orderTool.getOrder(order_id);
+        if (!isEmpty(order)) {
+            await order.setAuthCode(auth_code, Reference)
+            return responseTool.successResponse(res, order, 201, 'authCode/reference has been updated')
+        }
+        return responseTool.httpErrorResponse(res, null, 404, 'No order found')
+    }
+
+    static async updateShippedOn(req, res) {
+        const {
+            params: {
+                order_id
+            }
+        } = req
+        const order = await orderTool.getOrder(order_id);
+        if (!isEmpty(order)) {
+            await order.setShippedDate()
+            return responseTool.successResponse(res, order, 201, 'shipped_on date as been added')
+        }
+        return responseTool.httpErrorResponse(res, null, 404, 'No order found')
+    }
+
+    static async updateOrder(req, res) {
+        const {
+            params: {
+                order_id
+            },
+            body: {
+                comments,
+                name
+            }
+        } = req
+        const order = await orderTool.getOrder(order_id);
+        if (!isEmpty(order)) {
+            const updated = await order.updateOrder(comments, name)
+            return responseTool.successResponse(res, order, 201, 'order has been updated')
+        }
+        return responseTool.httpErrorResponse(res, null, 404, 'not found')
     }
 }

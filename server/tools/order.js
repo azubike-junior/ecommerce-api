@@ -2,7 +2,7 @@ import models from '../models';
 import Promise from 'bluebird'
 const {
     order,
-    orderDetail
+    order_detail
 } = models
 import {
     PAID
@@ -19,11 +19,18 @@ export default class OrderTool {
                 order_id: id
             },
             include: [{
-                model: orderDetail
+                model: order_detail
             }]
         })
     }
 
+    static async getOrder(id) {
+        return await order.findOne({
+            where: {
+                order_id: id
+            }
+        })
+    }
     static async getOrderByCustomer(order_id, customer_id) {
         return await order.findAll({
             where: {
@@ -35,7 +42,7 @@ export default class OrderTool {
 
     static async createOrderDetails(allItems) {
         Promise.mapSeries(allItems, (item) => {
-            orderDetail.create(item);
+            order_detail.create(item);
         }).then(result => {
             return result
         })
@@ -60,7 +67,7 @@ export default class OrderTool {
                 customer_id: id
             },
             include: [{
-                model: orderDetail
+                model: order_detail
             }]
         })
     }

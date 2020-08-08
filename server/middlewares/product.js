@@ -6,6 +6,7 @@ export default async (req, res, next) => {
     const {
         product_id
     } = req.body
+    console.log(product_id)
     const product = await ProductTool.getAproduct(product_id);
     if (!isEmpty(product)) {
         req.product = product

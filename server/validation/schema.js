@@ -2,13 +2,28 @@ import joi from 'joi';
 import {
     check,
     validationResult
-} from 'express-validator'
+} from 'express-validator';
 
 const name = joi.string().required().min(1).label('name');
-const email = joi.string().email().required().trim().label('email');
-const password = joi.string().required().trim().label('Password').error(() => {
-
-})
+const email = joi.string()
+    .email()
+    .required()
+    .trim()
+    .label("Email")
+    .lowercase();
+const password = joi.string()
+    .regex(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{6,}$/)
+    .min(6)
+    .required()
+    .trim()
+    .label("Password")
+    .error(errors => {
+        return formatError(
+            errors,
+            "Password",
+            "Password must be atleast 6 chars with atleast 1 uppercase, 1 number, & 1 special char"
+        );
+    });
 const address_2 = joi.string().allow("").trim().strict().label('address_2')
 const address_1 = joi.string().required().trim().label('address_1')
 const city = joi.string().required().min(1).trim().label('city')
@@ -36,17 +51,18 @@ const access_token = joi.string()
     .required()
     .trim()
     .label('access_token');
+const quantity = joi.number().integer().min(1).label('quantity')
 
-// export const signUpSchema = joi.object().keys({
-//     name,
-//     email,
-//     password
-// })
+export const signUpSchema = joi.object().keys({
+    name,
+    email,
+    password
+})
 
-// export const signInSchema = joi.object().keys({
-//     email: joi.string().trim().required(),
-//     password: joi.string().trim().required(),
-// })
+export const signInSchema = joi.object().keys({
+    email: joi.string().trim().required(),
+    password: joi.string().trim().required(),
+})
 
 export const updateDataOfCustomerSchema = joi.object().keys({
     name,
@@ -100,63 +116,77 @@ export const paymentSchema = joi.object().keys({
     order_id
 });
 
-export const signUpSchema = [
-    check('name').isLength({
-        min: 1
-    })
-    .trim()
-    .escape()
-    .withMessage('Name field is required'),
-    check('email')
-    .isEmail()
-    .isLength({
-        min: 1
-    })
-    .trim()
-    .escape()
-    .withMessage('Email field is required'),
-    check('password')
-    .isLength({
-        min: 8
-    })
-    .trim()
-    .withMessage('Password must be more than 8 characters'),
-    (req, res, next) => {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                message: errors.array()
-            })
-        }
-        return next();
-    }
-]
+export const updateCart = joi.object().keys({
+    quantity
+})
 
-export const signInSchema = [
-    check('email')
-    .isEmail()
-    .isLength({
-        min: 1
-    })
-    .trim()
-    .escape()
-    .withMessage('Email field is required'),
-    check('password')
-    .isLength({
-        min: 8
-    })
-    .trim()
-    .withMessage('Password must be more than 8 characters'),
-    (req, res, next) => {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                message: errors.array()
-            })
-        }
-        return next();
+export const formatError = (errors, label, message) => {
+    const err = errors[0];
+    switch (err.type) {
+        case "string.regex.base":
+            return message || `${label || err.path} is inavlid`;
+        default:
+            return err;
     }
-]
+};
+
+// export const signUpSchema = [
+//     check('name').isLength({
+//         min: 1
+//     })
+//     .trim()
+//     .escape()
+//     .withMessage('Name field is required'),
+//     check('email')
+//     .isEmail()
+//     .isLength({
+//         min: 1
+//     })
+//     .trim()
+//     .escape()
+//     .withMessage('Email field is required'),
+//     check('password')
+//     .isLength({
+//         min: 8
+//     })
+//     .trim()
+//     .withMessage('Password must be more than 8 characters'),
+//     (req, res, next) => {
+//         const errors = validationResult(req)
+//         if (!errors.isEmpty()) {
+//             return res.status(400).json({
+//                 message: errors.array()
+//             })
+//         }
+//         return next();
+//     }
+// ]
+
+// export const signInSchema = [
+//     check('email')
+//     .isEmail()
+//     .isLength({
+//         min: 1
+//     })
+//     .trim()
+//     .escape()
+//     .withMessage('Email field is required'),
+//     check('password')
+//     .isLength({
+//         min: 8
+//     })
+//     .trim()
+//     .withMessage('Password must be more than 8 characters'),
+//     (req, res, next) => {
+//         const errors = validationResult(req)
+//         if (!errors.isEmpty()) {
+//             return res.status(400).json({
+//                 message: errors.array()
+//             })
+//         }
+//         return next();
+//     }
+// ]
 
 export const updateCartSchema = () => {
     return [
