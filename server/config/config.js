@@ -9,10 +9,19 @@ module.exports = {
     dialect: 'postgres',
     dialectOptions: {
       ssl: true,
-      connectTimeout: 60000
+      connectTimeout: 60000,
+      ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+        keepAlive: true,        
+      },      
+      ssl: true,
+      define: {
+        timestamps: false,
+      }
     }
   }
-}
 
 module.exports.jwtConfigs = {
   secret: process.env.SECRET
