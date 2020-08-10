@@ -30,6 +30,10 @@ app.use(
     })
 )
 
+app.get('/', (req, res) => {
+    res.send('working')
+})
+
 app.use(passport.initialize())
 app.use(passport.session())
 
