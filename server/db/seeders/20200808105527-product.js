@@ -12,7 +12,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 2,
@@ -24,7 +24,7 @@ module.exports = {
                 image_2: 'chartres-cathedral-2.gif',
                 thumbnail: 'chartres-cathedral-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 3,
@@ -36,7 +36,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 4,
@@ -48,7 +48,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 5,
@@ -60,7 +60,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'gucci-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 6,
@@ -72,7 +72,7 @@ module.exports = {
                 image_2: 'alsace-2.gif',
                 thumbnail: 'alsace-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 7,
@@ -84,7 +84,7 @@ module.exports = {
                 image_2: 'Apocalypse-Tapestry-2.gif',
                 thumbnail: 'Apocalypse-Tapestry-thumbnail.gif',
                 display: 2,
-                department_id: 1
+            
             },
             {
                 product_id: 8,
@@ -96,7 +96,7 @@ module.exports = {
                 image_2: 'centaurs.gif',
                 thumbnail: 'century-thumbnail.gif',
                 display: 5,
-                department_id: 1
+        
             },
             {
                 product_id: 9,
@@ -108,7 +108,7 @@ module.exports = {
                 image_2: 'corsica-2.gif',
                 thumbnail: 'corsica-thumbnail.gif',
                 display: 3,
-                department_id: 1
+        
             },
             {
                 product_id: 10,
@@ -120,7 +120,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 1,
-                department_id: 1
+        
             },
             {
                 product_id: 11,
@@ -132,7 +132,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 1,
-                department_id: 1
+        
             },
             {
                 product_id: 12,
@@ -144,7 +144,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 13,
@@ -156,7 +156,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 14,
@@ -168,7 +168,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 15,
@@ -180,7 +180,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 16,
@@ -192,7 +192,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 17,
@@ -204,7 +204,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 18,
@@ -216,7 +216,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 19,
@@ -228,7 +228,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 20,
@@ -240,7 +240,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 21,
@@ -252,7 +252,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 1
+        
             },
             {
                 product_id: 22,
@@ -264,7 +264,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 2
+        
             },
             {
                 product_id: 23,
@@ -276,7 +276,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 2
+        
             },
             {
                 product_id: 24,
@@ -288,7 +288,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 3
+        
             },
             {
                 product_id: 25,
@@ -300,7 +300,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 3
+        
             },
             {
                 product_id: 26,
@@ -312,7 +312,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 3
+        
             },
             {
                 product_id: 27,
@@ -324,7 +324,7 @@ module.exports = {
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-                department_id: 2
+        
             },
         ], {});
     },
