@@ -2,8 +2,6 @@ import express from 'express';
 import router from './routes/index'
 import logger from 'morgan';
 import dotenv from 'dotenv'
-import swaggerUI from 'swagger-ui-express'
-import swaggerDoc from './swagger.json'
 import passport from 'passport';
 import {
     graphqlHTTP
