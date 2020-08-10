@@ -3,159 +3,159 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('product_attribute', [{
-        product: 1,
+        product_id: 1,
         attribute_value_id: 1
       },
       {
-        product: 2,
+        product_id: 2,
         attribute_value_id: 1
       },
       {
-        product: 3,
+        product_id: 3,
         attribute_value_id: 1
       },
       {
-        product: 4,
+        product_id: 4,
         attribute_value_id: 1
       },
       {
-        product: 5,
+        product_id: 5,
         attribute_value_id: 1
       },
       {
-        product: 6,
+        product_id: 6,
         attribute_value_id: 1
       },
       {
-        product: 7,
+        product_id: 7,
         attribute_value_id: 1
       },
       {
-        product: 8,
+        product_id: 8,
         attribute_value_id: 1
       },
       {
-        product: 9,
+        product_id: 9,
         attribute_value_id: 1
       },
       {
-        product: 10,
+        product_id: 10,
         attribute_value_id: 1
       },
       {
-        product: 11,
+        product_id: 11,
         attribute_value_id: 1
       },
       {
-        product: 12,
+        product_id: 12,
         attribute_value_id: 1
       },
       {
-        product: 13,
+        product_id: 13,
         attribute_value_id: 1
       },
       {
-        product: 14,
+        product_id: 14,
         attribute_value_id: 1
       },
       {
-        product: 15,
+        product_id: 15,
         attribute_value_id: 1
       },
       {
-        product: 16,
+        product_id: 16,
         attribute_value_id: 1
       },
       {
-        product: 17,
+        product_id: 17,
         attribute_value_id: 1
       },
       {
-        product: 18,
+        product_id: 18,
         attribute_value_id: 1
       },
       {
-        product: 19,
+        product_id: 19,
         attribute_value_id: 1
       },
       {
-        product: 20,
+        product_id: 20,
         attribute_value_id: 1
       },
       {
-        product: 21,
+        product_id: 21,
         attribute_value_id: 1
       },
       {
-        product: 22,
+        product_id: 22,
         attribute_value_id: 2
       },
       {
-        product: 23,
+        product_id: 23,
         attribute_value_id: 2
       },
       {
-        product: 24,
+        product_id: 24,
         attribute_value_id: 2
       },
       {
-        product: 25,
+        product_id: 25,
         attribute_value_id: 3
       },
       {
-        product: 26,
+        product_id: 26,
         attribute_value_id: 3
       },
       {
-        product: 27,
+        product_id: 27,
         attribute_value_id: 3
       },
       {
-        product: 28,
+        product_id: 28,
         attribute_value_id: 4
       },
       {
-        product: 29,
+        product_id: 29,
         attribute_value_id: 4
       },
       {
-        product: 30,
+        product_id: 30,
         attribute_value_id: 5
       },
       {
-        product: 31,
+        product_id: 31,
         attribute_value_id: 5
       },
       {
-        product: 32,
+        product_id: 32,
         attribute_value_id: 6
       },
       {
-        product: 33,
+        product_id: 33,
         attribute_value_id: 7
       },
       {
-        product: 34,
+        product_id: 34,
         attribute_value_id: 8
       },
       {
-        product: 35,
+        product_id: 35,
         attribute_value_id: 8
       },
       {
-        product: 36,
+        product_id: 36,
         attribute_value_id: 10
       },
       {
-        product: 37,
+        product_id: 37,
         attribute_value_id: 11
       },
       {
-        product: 38,
+        product_id: 38,
         attribute_value_id: 8
       },
       {
-        product: 39,
+        product_id: 39,
         attribute_value_id: 9
       }
 
