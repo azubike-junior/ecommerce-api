@@ -39,8 +39,6 @@ app.use(passport.session())
 
 passportfacebookConfiguration(passport)
 
-// app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDoc))
-
 app.use(logger('dev'))
 
 app.use('/', router)
