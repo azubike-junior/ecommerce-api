@@ -3,6 +3,7 @@ import router from './routes/index'
 import logger from 'morgan';
 import dotenv from 'dotenv'
 import passport from 'passport';
+import cors from 'cors';
 import {
     graphqlHTTP
 } from 'express-graphql'
@@ -19,6 +20,8 @@ app.use(express.json())
 app.use(express.urlencoded({
     extended: false
 }));
+
+app.use(cors())
 
 app.use(
     '/graphql',
