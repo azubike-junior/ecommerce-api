@@ -8,7 +8,7 @@
 	"host": "localhost:4040",
 	"basePath": "/",
 	"tags": [{
-			"name": "Customers",
+			"name": "customer",
 			"description": "Access to Customers"
 		},
 		{
