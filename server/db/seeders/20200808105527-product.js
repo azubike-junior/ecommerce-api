@@ -7,7 +7,7 @@ module.exports = {
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
@@ -31,7 +31,7 @@ module.exports = {
                 name: 'prada',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
@@ -55,7 +55,7 @@ module.exports = {
                 name: 'gucci',
                 description: 'This beautiful and iconic T-shirt.',
                 price: '55.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'gucci.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'gucci-thumbnail.gif',
@@ -79,7 +79,7 @@ module.exports = {
                 name: 'Apocalypse Tapestry',
                 description: 'One of the most famous tapestries of the Loire Valley, it dates from the 14th century. The T-shirt is of more recent vintage',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'Apocalypse-Tapestry.gif',
                 image_2: 'Apocalypse-Tapestry-2.gif',
                 thumbnail: 'Apocalypse-Tapestry-thumbnail.gif',
@@ -96,7 +96,7 @@ module.exports = {
                 image_2: 'centaurs.gif',
                 thumbnail: 'century-thumbnail.gif',
                 display: 5,
-        
+                department_id: 1
             },
             {
                 product_id: 9,
@@ -108,223 +108,223 @@ module.exports = {
                 image_2: 'corsica-2.gif',
                 thumbnail: 'corsica-thumbnail.gif',
                 display: 3,
-        
+                department_id: 1
             },
             {
                 product_id: 10,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 1,
-        
+                department_id: 1
             },
             {
                 product_id: 11,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 1,
-        
+                department_id: 1
             },
             {
                 product_id: 12,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 13,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 14,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 15,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 16,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 17,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 18,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 19,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 20,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 21,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 1
             },
             {
                 product_id: 22,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 2
             },
             {
                 product_id: 23,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 2
             },
             {
                 product_id: 24,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 3
             },
             {
                 product_id: 25,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 3
             },
             {
                 product_id: 26,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 3
             },
             {
                 product_id: 27,
                 name: 'Arc d' / 'Triomphe',
                 description: 'This beautiful and iconic T-shirt will no doubt lead you to your own triumph.',
                 price: '14.99',
-                discounted_price: '0.00',
+                discounted_price: 2.10,
                 image: 'arc-d-triomphe.gif',
                 image_2: 'arc-d-triomphe-2.gif',
                 thumbnail: 'arc-d-triomphe-thumbnail.gif',
                 display: 2,
-        
+                department_id: 2
             },
         ], {});
     },
